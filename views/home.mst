@@ -7,22 +7,25 @@
   </head>
   <body>
     <h2>To Do List</h2>
-    <form class="" action="/" method="post">
-      <input type="text" name="todo" value="">
+    <form class="" action="/addToDo" method="post">
+      <input type="text" name="todo" value="" placeholder="Add a todo">
       <button type="submit" name="button">Add</button>
     </form>
 
-    {{#todos}}
-    <form class="" action="/" method="get">
-      <input type="checkbox" name="" value="">{{.}}
-    </form>
-    {{/todos}}
+    <ul>
+      {{#todos}}
+      <li style="list-style-type: none">
+        <button type="button">Mark Complete</button>
+        {{.}}
+      </li>
+      {{/todos}}
+    </ul>
 
     <h2>Tasks Completed</h2>
-    {{^done}}
     <ul>
-      <li><del>{{.}}</del></li>
+      {{#done}}
+      <li style="list-style-type: none"><del>{{.}}</del></li>
+      {{/done}}
     </ul>
-    {{/done}}
   </body>
 </html>

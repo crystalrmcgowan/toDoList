@@ -19,11 +19,10 @@ const todos = ["Wash the car", "Do the dishes", "Clean the kitchen"]
 const done = ["Sweep the floors", "Clean the toilets", "Dust the furniture"]
 
 app.get("/", (req, res) => {
-  res.render("home", { todos: todos })
+  res.render("home", { todos: todos, done: done })
 })
 
-app.post("/", (req, res) => {
-  todos.push(req.body.done)
+app.post("/addToDo", (req, res) => {
   res.redirect("/")
 })
 
