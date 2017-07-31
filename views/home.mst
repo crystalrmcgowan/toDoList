@@ -8,26 +8,26 @@
   <body>
     <h2>To Do List</h2>
     <form class="" action="/addToDo" method="post">
-      <input type="text" name="todo" value="" placeholder="Add a todo">
+      <input type="text" name="description" value="" placeholder="Add a todo">
       <button type="submit" name="button">Add</button>
     </form>
 
     <ul>
-      {{#todos}}
+      {{#uncompleted}}
         <li style="list-style-type: none">
           <form class="" action="/markComplete" method="post">
-            <button type="submit" name="todo" value="{{.}}">Mark Complete</button>
-            {{.}}
+            <button type="submit" name="id" value="{{id}}">Mark Complete</button>
+            {{description}}
           </form>
         </li>
-      {{/todos}}
+      {{/uncompleted}}
     </ul>
 
     <h2>Tasks Completed</h2>
     <ul>
-      {{#done}}
-      <li style="list-style-type: none"><del>{{.}}</del></li>
-      {{/done}}
+      {{#completed}}
+      <li style="list-style-type: none"><del>{{description}}</del></li>
+      {{/completed}}
     </ul>
   </body>
 </html>
