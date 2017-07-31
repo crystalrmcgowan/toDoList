@@ -15,7 +15,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(expressValidator())
 
 const todos = ["Wash the car", "Do the dishes", "Clean the kitchen"]
-
 const done = ["Sweep the floors", "Clean the toilets", "Dust the furniture"]
 
 app.get("/", (req, res) => {
@@ -23,6 +22,17 @@ app.get("/", (req, res) => {
 })
 
 app.post("/addToDo", (req, res) => {
+  const newToDo = req.body.todo
+  todos.push(newToDo)
+  res.redirect("/")
+})
+
+app.post("/markComplete", (req, res) => {
+  const completedTask = req.body.todo
+  done.push(completedTask)
+
+  const indexOfItem = todos.indexOf(completedTask)
+  todos.splice(indexOfItem, 1)
   res.redirect("/")
 })
 

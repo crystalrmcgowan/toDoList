@@ -14,10 +14,12 @@
 
     <ul>
       {{#todos}}
-      <li style="list-style-type: none">
-        <button type="button">Mark Complete</button>
-        {{.}}
-      </li>
+        <li style="list-style-type: none">
+          <form class="" action="/markComplete" method="post">
+            <button type="submit" name="todo" value="{{.}}">Mark Complete</button>
+            {{.}}
+          </form>
+        </li>
       {{/todos}}
     </ul>
 
