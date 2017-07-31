@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 })
 
 app.post("/", (req, res) => {
-  todos.push(req.body.todo)
+  todos.push(req.body.done)
   res.redirect("/")
 })
 
